@@ -19,7 +19,7 @@ class modelInterface {
   // readOne
   async readOne(id) {
     try {
-      let oneInstance = await this.model.findOne({where: { id }});
+      let oneInstance = await this.model.findOne({ where: { id } });
       return oneInstance;
     } catch (err) {
       console.error(err);
@@ -39,15 +39,18 @@ class modelInterface {
   }
   // update
   async update(data, id) {
-    try{
-      await this.model.update(data, {where: { id }});
-      let updatedInstance = await this.model.findOne({where: { id }});
+    try {
+      await this.model.update(data, { where: { id } });
+      let updatedInstance = await this.model.findOne({ where: { id } });
       return updatedInstance;
     } catch (err) {
       console.error(err);
       return err;
+
     }
   }
+}
+
 //   // delete
 //   async delete(id) {
 //     try{
@@ -60,5 +63,6 @@ class modelInterface {
 //     }
 //   }
 }
+
 
 module.exports = modelInterface;

@@ -7,10 +7,12 @@ const showSchema = require('./show.schema');
 const userSchema = require('./user.schema');
 require('dotenv').config();
 
-const DATABASE_URL = process.env.NODE_ENV === 'test' 
-  ? 'sqlite::memory'
-  : process.env.DATABASE_URL || 'postgres://localhost:5432/backend';
+const DATABASE_URL = process.env.DATABASE_URL || 'postgres://localhost:5432/backend';
+
   
+const sequelize = new Sequelize(DATABASE_URL);
+
+// Add
 // const sequelize = new Sequelize(DATABASE_URL, {
 //   dialectOptions: {
 //     ssl: {
@@ -20,7 +22,6 @@ const DATABASE_URL = process.env.NODE_ENV === 'test'
 //   },
 // });   
 
-const sequelize = new Sequelize(DATABASE_URL);
 
 // create our associations between tables - show id between Show and Review tables, user id between User and Review tables 
 

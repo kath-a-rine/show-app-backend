@@ -20,3 +20,5 @@ router.get('/show', async (req, res, next) => {
   let allShows = await showInterface.readAll();
   res.status(200).send(allShows);
 });
+
+module.exports = router;
