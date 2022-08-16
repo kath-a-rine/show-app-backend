@@ -11,7 +11,6 @@ const router = express.Router();
 router.post('/review', async (req, res, next) => {
   let review = req.body;
 
-  //query to the database ---****
   let response = await reviewInterface.create(review);
   res.status(200).send(response);
 });
@@ -21,3 +20,5 @@ router.get('/review', async (req, res, next) => {
   let allReviews = await reviewInterface.readAll();
   res.status(200).send(allReviews);
 });
+
+module.exports = router;
