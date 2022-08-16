@@ -1,0 +1,1 @@
+// Show schema table - includes id(generated), title, image, description, average rating, genre, UUID (note - include UUID for better data management)

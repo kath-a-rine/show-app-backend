@@ -1,0 +1,1 @@
+// User schema table - includes id(generated), email, password. Foreign keys - User ID, Show ID
