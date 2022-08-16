@@ -1,9 +1,8 @@
 // start server
-
-// 'use strict';
+'use strict';
 
 // const { sequelize } = require('./src/models')
-// const server = require('./src/server');
+const server = require('./src/server');
 
 // sequelize.sync()
 //   .then(() => {
@@ -12,4 +11,4 @@
 //   .catch(err => console.error(err));
 
 
-// server.start();
+server.start();
