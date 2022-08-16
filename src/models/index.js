@@ -8,6 +8,7 @@ const userSchema = require('./user.schema');
 require('dotenv').config();
 
 const DATABASE_URL = process.env.DATABASE_URL || 'postgres://localhost:5432/backend';
+
   
 const sequelize = new Sequelize(DATABASE_URL);
 
