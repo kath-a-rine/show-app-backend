@@ -63,5 +63,4 @@ class modelInterface {
 //     }
 //   }
 
-
 module.exports = modelInterface;

@@ -22,4 +22,6 @@ router.get('/show', async (req, res, next) => {
   res.status(200).send(allShows);
 });
 
+// GET one show
+
 module.exports = router;
