@@ -18,6 +18,7 @@ router.post('/show', async (req, res, next) => {
 // GET all shows
 router.get('/show', async (req, res, next) => {
   let allShows = await showInterface.readAll();
+  console.log('all shows: ', allShows);
   res.status(200).send(allShows);
 });
 
