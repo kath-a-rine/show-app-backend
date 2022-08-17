@@ -16,6 +16,7 @@ const cors = require('cors');
 require('dotenv').config();
 const PORT = process.env.PORT || 3002
 
+app.use(cors());
 app.use(express.json());
 app.use(showRoute);
 app.use(userRoute);
@@ -26,7 +27,6 @@ app.use(accountRoute);
 app.use(moviedbRoute);
 app.use('*', notFoundHandler);
 app.use(internalError);
-app.use(cors());
 
 module.exports = {
   server: app,
