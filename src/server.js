@@ -8,6 +8,7 @@ const internalError = require('./error-handlers/500');
 const showRoute = require('./routes/show')
 const userRoute = require('./routes/user')
 const reviewRoute = require('./routes/review')
+const accountRoute = require('./routes/account');
 const app = express();
 
 require('dotenv').config();
@@ -17,6 +18,9 @@ app.use(express.json());
 app.use(showRoute);
 app.use(userRoute);
 app.use(reviewRoute);
+/// CHECK THE BELOW
+// app.use(express.urlencoded({ extended: true }));
+app.use(accountRoute);
 app.use('*', notFoundHandler);
 app.use(internalError);
 
