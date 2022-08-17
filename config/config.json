@@ -1,0 +1,27 @@
+{
+  "development": {
+<<<<<<< HEAD
+    "username": "gfarley",
+=======
+    "username": "katharines",
+>>>>>>> de7072f9bb0d74ff81e5051c40a61e01a68f7672
+    "password": null,
+    "database": "backend",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
