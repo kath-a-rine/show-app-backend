@@ -4,13 +4,11 @@ const express = require('express');
 const { userInterface } = require('../models');
 const bcrypt = require('bcrypt');
 let basicAuth = require('../middleware/basicAuth')
-// let auth = require('basic-auth');
-// let user = auth(req)
 const router = express.Router();
 
 
 router.post('/signup', async (req, res) => {
-
+  console.log('requestBody', req.body)
   try {
     let { email, password } = req.body;
     let encryptedPassword = await bcrypt.hash(password, 10);
@@ -18,7 +16,6 @@ router.post('/signup', async (req, res) => {
       email,
       password: encryptedPassword,
     });
-    console.log(encryptedPassword);
     res.status(201).json(record);
   } catch (e) {
     res.status(403).send('Error Creating User');
