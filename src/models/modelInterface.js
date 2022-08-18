@@ -26,6 +26,17 @@ class modelInterface {
       return err;
     }
   }
+
+  async readAccount(email) {
+    try {
+      let oneInstance = await this.model.findOne({ where: { email } });
+      return oneInstance;
+    } catch (err) {
+      console.error(err);
+      return err;
+    }
+  }
+
   // readAll
   async readAll() {
     try {
