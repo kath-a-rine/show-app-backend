@@ -9,7 +9,6 @@ require('dotenv').config();
 
 const DATABASE_URL = process.env.DATABASE_URL || 'postgres://localhost:5432/backend';
 
-
 const sequelize = new Sequelize(DATABASE_URL);
 
 // Add
@@ -33,8 +32,6 @@ UserModel.hasMany(ReviewModel, { foreignKey: 'userId', sourceKey: 'id' });
 ReviewModel.belongsTo(UserModel, { foreignKey: 'userId', targetKey: 'id' });
 ShowModel.hasMany(ReviewModel, { foreignKey: 'showId', sourceKey: 'id' });
 ReviewModel.belongsTo(ShowModel, { foreignKey: 'showId', targetKey: 'id' });
-// database information
-// circle back with model interface
 
 module.exports = {
   sequelize,

@@ -26,6 +26,17 @@ class modelInterface {
       return err;
     }
   }
+
+  async readAccount(email) {
+    try {
+      let oneInstance = await this.model.findOne({ where: { email } });
+      return oneInstance;
+    } catch (err) {
+      console.error(err);
+      return err;
+    }
+  }
+
   // readAll
   async readAll() {
     try {
@@ -60,18 +71,19 @@ class modelInterface {
       return err;
     }
   }
-}
 
-//   // delete
-//   async delete(id) {
-//     try{
-//       let deletedInstance = await this.model.findOne({where: { id }});
-//       await this.model.destroy({where: { id }});
-//       return deletedInstance;
-//     } catch (err) {
-//       console.error(err);
-//       return err;
-//     }
-//   }
+
+// delete
+  async delete(id){
+    try{
+      let deletedInstance = await this.model.findOne({where: { id }});
+      await this.model.destroy({where: { id }});
+      return deletedInstance;
+    } catch (err) {
+      console.error(err);
+      return err;
+    }
+  }
+}
 
 module.exports = modelInterface;

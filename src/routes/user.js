@@ -32,7 +32,7 @@ router.get('/user', async (req, res, next) => {
 router.get('/user/:id', async (req, res, next) => {
   let { id } = req.params;
   let oneUser = await userInterface.readWithRelations(id, {include: reviewInterface.model});
-  res.status(200).send(oneUser);
+  res.status(200).send(oneUser.reviews);
 });
 
 module.exports = router;
