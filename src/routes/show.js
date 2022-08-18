@@ -23,5 +23,10 @@ router.get('/show', async (req, res, next) => {
 });
 
 // GET one show
+router.get('/show/:id', async (req, res, next) => {
+  let { id } = req.params;
+  let oneShow = await showInterface.readOne(id);
+  res.status(200).send(oneShow);
+});
 
 module.exports = router;
