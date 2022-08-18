@@ -49,6 +49,17 @@ class modelInterface {
 
     }
   }
+
+  async readWithRelations(id, options) {
+    try {
+      let query = {where: { id }, ...options };
+      let result = await this.model.findOne(query);
+      return result;
+    } catch(err){
+      console.error(err);
+      return err;
+    }
+  }
 }
 
 //   // delete
