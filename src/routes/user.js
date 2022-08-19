@@ -8,12 +8,12 @@ const { userInterface, reviewInterface, showInterface } = require('../models');
 const router = express.Router();
 
 // POST user
-router.post('/user', async (req, res, next) => {
-  let user = req.body;
+// router.post('/user', async (req, res, next) => {
+//   let user = req.body;
 
-  let response = await userInterface.create(user);
-  res.status(200).send(response);
-});
+//   let response = await userInterface.create(user);
+//   res.status(200).send(response);
+// });
 
 //Get all users
 router.get('/user', async (req, res, next) => {
@@ -33,6 +33,13 @@ router.get('/user/:id', async (req, res, next) => {
   let { id } = req.params;
   let oneUser = await userInterface.readWithRelations(id, {include: reviewInterface.model});
   res.status(200).send(oneUser.reviews);
+});
+
+// DELETE one user
+router.delete('/user/:id', async (req, res, next) => {
+  let { id } = req.params;
+  let deleteUser = await userInterface.delete(id);
+  res.status(200).send(deleteUser);
 });
 
 module.exports = router;

@@ -9,16 +9,16 @@ require('dotenv').config();
 
 const DATABASE_URL = process.env.DATABASE_URL || 'postgres://localhost:5432/backend';
 
-//const sequelize = new Sequelize(DATABASE_URL);
+// const sequelize = new Sequelize(DATABASE_URL);
 
 // Add
 const sequelize = new Sequelize(DATABASE_URL, {
   dialectOptions: {
-    ssl: {
+     ssl: {
       require: true,
       rejectUnauthorized: false,
     },
-  },
+   },
 });   
 
 

@@ -22,6 +22,12 @@ router.get('/show', async (req, res, next) => {
   res.status(200).send(allShows);
 });
 
+// DELETE one show
+router.delete('/show/:id', async (req, res, next) => {
+  let { id } = req.params;
+  let deleteShow = await showInterface.delete(id);
+  res.status(200).send(deleteShow);
+
 // GET one show
 router.get('/show/:id', async (req, res, next) => {
   let { id } = req.params;
