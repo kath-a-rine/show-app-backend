@@ -9,18 +9,17 @@ require('dotenv').config();
 
 const DATABASE_URL = process.env.DATABASE_URL || 'postgres://localhost:5432/backend';
 
-  
-const sequelize = new Sequelize(DATABASE_URL);
+// const sequelize = new Sequelize(DATABASE_URL);
 
 // Add
-// const sequelize = new Sequelize(DATABASE_URL, {
-//   dialectOptions: {
-//     ssl: {
-//       require: true,
-//       rejectUnauthorized: false,
-//     },
-//   },
-// });   
+const sequelize = new Sequelize(DATABASE_URL, {
+  dialectOptions: {
+     ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+   },
+});   
 
 
 // create our associations between tables - show id between Show and Review tables, user id between User and Review tables 
@@ -31,10 +30,10 @@ const ShowModel = showSchema(sequelize, DataTypes);
 
 UserModel.hasMany(ReviewModel, { foreignKey: 'userId', sourceKey: 'id' });
 ReviewModel.belongsTo(UserModel, { foreignKey: 'userId', targetKey: 'id' });
-ShowModel.hasMany(ReviewModel, { foreignKey: 'showId', sourceKey: 'id'});
+ShowModel.hasMany(ReviewModel, { foreignKey: 'showId', sourceKey: 'id' });
 ReviewModel.belongsTo(ShowModel, { foreignKey: 'showId', targetKey: 'id' });
 
-module.exports ={
+module.exports = {
   sequelize,
   reviewInterface: new modelInterface(ReviewModel),
   userInterface: new modelInterface(UserModel),

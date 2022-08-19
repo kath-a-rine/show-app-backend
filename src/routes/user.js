@@ -3,7 +3,7 @@
 'use strict';
 
 const express = require('express');
-const { userInterface } = require('../models');
+const { userInterface, reviewInterface, showInterface } = require('../models');
 
 const router = express.Router();
 
@@ -22,10 +22,17 @@ router.get('/user', async (req, res, next) => {
 });
 
 // GET one user
+// router.get('/user/:id', async (req, res, next) => {
+//   let { id } = req.params;
+//   let oneUser = await userInterface.readOne(id);
+//   res.status(200).send(oneUser);
+// });
+
+// GET one user with relations
 router.get('/user/:id', async (req, res, next) => {
   let { id } = req.params;
-  let oneUser = await userInterface.readOne(id);
-  res.status(200).send(oneUser);
+  let oneUser = await userInterface.readWithRelations(id, {include: reviewInterface.model});
+  res.status(200).send(oneUser.reviews);
 });
 
 // DELETE one user
