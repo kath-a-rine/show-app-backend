@@ -15,13 +15,14 @@ async function basicAuth(req, res, next) {
     let decodedAuthStr = base64.decode(encodedAuthStr);
     // console.log('decodedAuthStr:', decodedAuthStr);
 
-    let [ email, password ] = decodedAuthStr.split(':');
-    // console.log('username:', email);
-    // console.log('password:', password);
+    let [ username, password ] = decodedAuthStr.split(':');
+    console.log('username:', username);
+    console.log('password:', password);
 
-    let user = await userInterface.readAccount(email);
+    let user = await userInterface.readAccount(username);
     if (user){
-      let validUser = await bcrypt.compare(password,user.password);
+      let validUser = await bcrypt.compare(password, user.password);
+      console.log('validUser', validUser)
       if (validUser) {
         req.user = user;
         next();
