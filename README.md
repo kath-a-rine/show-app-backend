@@ -121,7 +121,7 @@ Application is deployed here:
 
 ### SQL Database Schema
 
-![db-schema](./assets/db_schema.png)
+![db-schema](./assets/db-schema.png)
 
 ### Web Request/Response Cycle
 
